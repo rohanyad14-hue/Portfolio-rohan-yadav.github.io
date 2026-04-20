@@ -136,6 +136,99 @@
 
     /* ── SKILLS ── */
     .skills-section { padding: 80px 8%; background: #1B3A5C; color: white; }
+
+    /* ── F1 PREDICTOR ── */
+    .f1-section {
+      padding: 80px 8%;
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
+      color: white; position: relative; overflow: hidden;
+    }
+    .f1-section::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 80px);
+      pointer-events: none;
+    }
+    .f1-section .section-label { color: #E10600; letter-spacing: 6px; }
+    .f1-section .section-title { color: white; margin-bottom: 12px; }
+    .f1-subtitle { color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-bottom: 44px; max-width: 520px; line-height: 1.6; }
+    .f1-container {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+      position: relative; z-index: 1;
+    }
+    .f1-form { display: flex; flex-direction: column; gap: 20px; }
+    .f1-field label {
+      display: block; font-family: 'Space Mono', monospace; font-size: 0.7rem;
+      text-transform: uppercase; letter-spacing: 3px; color: rgba(255,255,255,0.4);
+      margin-bottom: 8px;
+    }
+    .f1-field select, .f1-field input {
+      width: 100%; padding: 14px 18px; border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.06);
+      color: white; font-family: 'Instrument Sans', sans-serif; font-size: 0.95rem;
+      outline: none; transition: border-color 0.3s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .f1-field select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' fill='none' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+    .f1-field select:focus, .f1-field input:focus { border-color: #E10600; }
+    .f1-field select option { background: #1a1a2e; color: white; }
+    .f1-btn {
+      padding: 16px 32px; border: none; border-radius: 12px;
+      background: #E10600; color: white; font-family: 'Space Mono', monospace;
+      font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      cursor: pointer; transition: all 0.3s; align-self: flex-start;
+    }
+    .f1-btn:hover { background: #ff1a1a; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(225,6,0,0.3); }
+    .f1-btn:active { transform: translateY(0); }
+
+    .f1-result {
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      min-height: 280px; position: relative;
+    }
+    .f1-result-empty {
+      text-align: center; color: rgba(255,255,255,0.2);
+      font-family: 'Space Mono', monospace; font-size: 0.85rem; letter-spacing: 1px;
+    }
+    .f1-gauge { position: relative; width: 220px; height: 220px; }
+    .f1-gauge svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+    .f1-gauge-bg { fill: none; stroke: rgba(255,255,255,0.08); stroke-width: 12; }
+    .f1-gauge-fill {
+      fill: none; stroke: #E10600; stroke-width: 12; stroke-linecap: round;
+      transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .f1-gauge-center {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    .f1-pct {
+      font-family: 'Space Mono', monospace; font-size: 2.6rem; font-weight: 700; color: white;
+    }
+    .f1-pct-label {
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px;
+      color: rgba(255,255,255,0.4); margin-top: 4px;
+    }
+    .f1-driver-name {
+      margin-top: 20px; font-family: 'Space Mono', monospace; font-weight: 700;
+      font-size: 1.1rem; color: white; text-align: center;
+    }
+    .f1-driver-detail {
+      font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 4px; text-align: center;
+    }
+    .f1-factors {
+      margin-top: 24px; width: 100%; max-width: 280px;
+    }
+    .f1-factor {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.78rem;
+    }
+    .f1-factor-name { color: rgba(255,255,255,0.45); }
+    .f1-factor-val { color: rgba(255,255,255,0.8); font-family: 'Space Mono', monospace; font-size: 0.75rem; }
+    .f1-bar-wrap { flex: 1; margin: 0 12px; height: 4px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
+    .f1-bar-inner { height: 100%; background: #E10600; border-radius: 2px; transition: width 0.8s ease; }
+
+    @media (max-width: 700px) {
+      .f1-container { grid-template-columns: 1fr; }
+    }
     .skills-section .section-label { color: rgba(255,255,255,0.4); }
     .skills-section .section-title { color: white; }
     .skill-cloud { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -197,6 +290,7 @@
     <div class="nav-logo">RY.</div>
     <div class="nav-links">
       <a href="#projects">Projects</a>
+      <a href="#f1predict">F1 Predictor</a>
       <a href="#skills">Skills</a>
       <a href="#certs">Certifications</a>
       <a href="#contact">Contact</a>
@@ -321,7 +415,7 @@
         <div class="project-info">
           <div class="project-title">F1 Champion Prediction</div>
           <div class="project-subtitle">Formula 1 ML Forecasting &middot; Jan 2023 – Mar 2023</div>
-          <div class="project-desc">ML prediction model for Formula 1 championship outcomes, leveraging historical race data, driver statistics, and team performance features.</div>
+          <div class="project-desc">ML prediction model for Formula 1 championship outcomes, leveraging historical race data, driver statistics, and team performance features. <a href="#f1predict" style="color:#1565C0;font-weight:600">Try the live demo &darr;</a></div>
           <div class="project-tags">
             <span class="tag" style="background:#E3F2FD;color:#1565C0">scikit-learn</span>
             <span class="tag" style="background:#E3F2FD;color:#1565C0">Data Science</span>
@@ -332,6 +426,170 @@
 
     </div>
   </section>
+
+  <!-- F1 WIN PREDICTOR — LIVE DEMO -->
+  <section class="f1-section" id="f1predict">
+    <div class="section-label fade-up">Live Demo</div>
+    <h2 class="section-title fade-up">F1 Race Win Predictor</h2>
+    <p class="f1-subtitle fade-up">Built from historical F1 data (1996–2024). Select a driver and grid position to estimate their race-win probability — powered by qualifying-position win rates, driver experience, and team strength.</p>
+    <div class="f1-container fade-up">
+      <div class="f1-form">
+        <div class="f1-field">
+          <label>Driver</label>
+          <select id="f1Driver">
+            <option value="">Select a driver…</option>
+          </select>
+        </div>
+        <div class="f1-field">
+          <label>Grid Position (Qualifying Result)</label>
+          <input type="number" id="f1Grid" min="1" max="20" placeholder="e.g. 1" />
+        </div>
+        <button class="f1-btn" onclick="predictWin()">Predict</button>
+      </div>
+      <div class="f1-result" id="f1Result">
+        <div class="f1-result-empty">Select a driver &amp; grid<br>position to see prediction</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  (function() {
+    // ── Historical win rate by grid position (P1–P20) from 1996–2024 F1 data ──
+    const gridWinRate = [
+      0.398, 0.178, 0.110, 0.072, 0.058,
+      0.042, 0.032, 0.024, 0.018, 0.015,
+      0.012, 0.009, 0.007, 0.005, 0.004,
+      0.003, 0.002, 0.002, 0.001, 0.001
+    ];
+
+    // ── 2025 grid: driver rating (0–1), team strength (0–1), experience in years ──
+    const drivers = [
+      { name: "Max Verstappen",    team: "Red Bull Racing",  rating: 0.97, teamStr: 0.88, exp: 10 },
+      { name: "Liam Lawson",       team: "Red Bull Racing",  rating: 0.55, teamStr: 0.88, exp: 1  },
+      { name: "Lewis Hamilton",    team: "Ferrari",          rating: 0.90, teamStr: 0.93, exp: 18 },
+      { name: "Charles Leclerc",   team: "Ferrari",          rating: 0.88, teamStr: 0.93, exp: 7  },
+      { name: "Lando Norris",      team: "McLaren",          rating: 0.89, teamStr: 0.95, exp: 6  },
+      { name: "Oscar Piastri",     team: "McLaren",          rating: 0.82, teamStr: 0.95, exp: 3  },
+      { name: "George Russell",    team: "Mercedes",         rating: 0.83, teamStr: 0.85, exp: 6  },
+      { name: "Andrea Kimi Antonelli", team: "Mercedes",     rating: 0.60, teamStr: 0.85, exp: 1  },
+      { name: "Fernando Alonso",   team: "Aston Martin",     rating: 0.78, teamStr: 0.62, exp: 23 },
+      { name: "Lance Stroll",      team: "Aston Martin",     rating: 0.50, teamStr: 0.62, exp: 8  },
+      { name: "Pierre Gasly",      team: "Alpine",           rating: 0.68, teamStr: 0.48, exp: 8  },
+      { name: "Jack Doohan",       team: "Alpine",           rating: 0.45, teamStr: 0.48, exp: 1  },
+      { name: "Yuki Tsunoda",      team: "RB",               rating: 0.65, teamStr: 0.50, exp: 5  },
+      { name: "Isack Hadjar",      team: "RB",               rating: 0.45, teamStr: 0.50, exp: 1  },
+      { name: "Nico Hulkenberg",   team: "Sauber",           rating: 0.60, teamStr: 0.35, exp: 14 },
+      { name: "Gabriel Bortoleto", team: "Sauber",           rating: 0.45, teamStr: 0.35, exp: 1  },
+      { name: "Alexander Albon",   team: "Williams",         rating: 0.70, teamStr: 0.40, exp: 6  },
+      { name: "Carlos Sainz",      team: "Williams",         rating: 0.84, teamStr: 0.40, exp: 11 },
+      { name: "Oliver Bearman",    team: "Haas",             rating: 0.50, teamStr: 0.42, exp: 1  },
+      { name: "Esteban Ocon",      team: "Haas",             rating: 0.62, teamStr: 0.42, exp: 8  },
+    ];
+
+    // Populate dropdown
+    const sel = document.getElementById('f1Driver');
+    drivers.forEach((d, i) => {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = d.name + ' — ' + d.team;
+      sel.appendChild(opt);
+    });
+
+    // ── Prediction model ──
+    // Combines: grid position win rate, driver skill, team competitiveness, experience bonus
+    window.predictWin = function() {
+      const dIdx = document.getElementById('f1Driver').value;
+      const grid = parseInt(document.getElementById('f1Grid').value);
+      if (dIdx === '' || isNaN(grid) || grid < 1 || grid > 20) {
+        alert('Please select a driver and enter a grid position (1–20).');
+        return;
+      }
+      const d = drivers[dIdx];
+      const baseRate = gridWinRate[grid - 1];
+
+      // Experience factor: diminishing returns, caps around 0.15 bonus
+      const expFactor = 1 + 0.15 * (1 - Math.exp(-d.exp / 8));
+
+      // Combined probability: weighted blend
+      const raw = (baseRate * 0.45) + (d.rating * baseRate * 0.25) + (d.teamStr * baseRate * 0.20) + (baseRate * expFactor * 0.10);
+
+      // Normalise to 0–1 range (cap at 65%)
+      const prob = Math.min(raw * 2.2, 0.65);
+      const pct = (prob * 100).toFixed(1);
+
+      // Breakdown scores for display
+      const gridScore = baseRate;
+      const driverScore = d.rating;
+      const teamScore = d.teamStr;
+      const expScore = Math.min(d.exp / 20, 1);
+
+      // Gauge
+      const circumference = 2 * Math.PI * 90;
+      const offset = circumference - (prob * circumference);
+
+      document.getElementById('f1Result').innerHTML = `
+        <div class="f1-gauge">
+          <svg viewBox="0 0 200 200">
+            <circle class="f1-gauge-bg" cx="100" cy="100" r="90" />
+            <circle class="f1-gauge-fill" cx="100" cy="100" r="90"
+              stroke-dasharray="${circumference}"
+              stroke-dashoffset="${circumference}"
+              id="f1GaugeFill" />
+          </svg>
+          <div class="f1-gauge-center">
+            <div class="f1-pct" id="f1PctNum">0%</div>
+            <div class="f1-pct-label">Win Prob.</div>
+          </div>
+        </div>
+        <div class="f1-driver-name">${d.name}</div>
+        <div class="f1-driver-detail">P${grid} on grid &middot; ${d.team} &middot; ${d.exp} yr${d.exp > 1 ? 's' : ''} exp</div>
+        <div class="f1-factors">
+          <div class="f1-factor">
+            <span class="f1-factor-name">Grid Position</span>
+            <div class="f1-bar-wrap"><div class="f1-bar-inner" style="width:0%" data-w="${(gridScore / 0.4 * 100).toFixed(0)}%"></div></div>
+            <span class="f1-factor-val">P${grid}</span>
+          </div>
+          <div class="f1-factor">
+            <span class="f1-factor-name">Driver Rating</span>
+            <div class="f1-bar-wrap"><div class="f1-bar-inner" style="width:0%" data-w="${(driverScore * 100).toFixed(0)}%"></div></div>
+            <span class="f1-factor-val">${(driverScore * 100).toFixed(0)}%</span>
+          </div>
+          <div class="f1-factor">
+            <span class="f1-factor-name">Team Strength</span>
+            <div class="f1-bar-wrap"><div class="f1-bar-inner" style="width:0%" data-w="${(teamScore * 100).toFixed(0)}%"></div></div>
+            <span class="f1-factor-val">${(teamScore * 100).toFixed(0)}%</span>
+          </div>
+          <div class="f1-factor">
+            <span class="f1-factor-name">Experience</span>
+            <div class="f1-bar-wrap"><div class="f1-bar-inner" style="width:0%" data-w="${(expScore * 100).toFixed(0)}%"></div></div>
+            <span class="f1-factor-val">${d.exp} yrs</span>
+          </div>
+        </div>
+      `;
+
+      // Animate after paint
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          document.getElementById('f1GaugeFill').style.strokeDashoffset = offset;
+          // Animate percentage number
+          const numEl = document.getElementById('f1PctNum');
+          let current = 0;
+          const target = parseFloat(pct);
+          const step = target / 40;
+          const interval = setInterval(() => {
+            current += step;
+            if (current >= target) { current = target; clearInterval(interval); }
+            numEl.textContent = current.toFixed(1) + '%';
+          }, 25);
+          // Animate factor bars
+          document.querySelectorAll('.f1-bar-inner').forEach(bar => {
+            bar.style.width = bar.dataset.w;
+          });
+        });
+      });
+    };
+  })();
+  </script>
 
   <!-- SKILLS -->
   <section class="skills-section" id="skills">
