@@ -279,36 +279,22 @@
     /* ── WORK IN PROGRESS STICKER ── */
     .wip-sticker {
       position: fixed;
-      right: -38px;
-      top: 50%;
-      transform: translateY(-50%) rotate(90deg);
+      right: 16px;
+      bottom: 20px;
       z-index: 200;
-      background: #FFD700;
-      color: #000;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      padding: 8px 22px;
-      border: 2.5px solid #000;
-      border-radius: 0;
-      box-shadow: 3px 3px 0 #000;
-      white-space: nowrap;
+      width: 80px;
       pointer-events: none;
-      animation: wip-pulse 3s ease-in-out infinite;
+      opacity: 0.9;
+      filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.3));
+      animation: wip-bob 3s ease-in-out infinite;
     }
-    .wip-sticker::before {
-      content: '\u26A0';
-      margin-right: 8px;
-      font-size: 0.85rem;
-    }
-    @keyframes wip-pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.75; }
+    .wip-sticker img { width: 100%; height: auto; display: block; border-radius: 6px; }
+    @keyframes wip-bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
     @media (max-width: 600px) {
-      .wip-sticker { right: -42px; font-size: 0.6rem; padding: 6px 18px; }
+      .wip-sticker { width: 60px; right: 10px; bottom: 14px; }
     }
 
     /* ── RESPONSIVE ── */
@@ -335,7 +321,9 @@
   </nav>
 
   <!-- WORK IN PROGRESS STICKER -->
-  <div class="wip-sticker">Work in Progress</div>
+  <div class="wip-sticker">
+    <img src="G7010.png" alt="Work in Progress" />
+  </div>
 
   <!-- HERO -->
   <section class="hero-section">
